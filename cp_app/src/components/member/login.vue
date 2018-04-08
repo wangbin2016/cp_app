@@ -73,7 +73,7 @@
 	function failFn(data) {
 		console.log("fail:::" + JSON.stringify(data));
 		Toast({
-		  message: data.data.text,
+		  message: data.text,
 		  position: 'middle',
 		  duration: 2000
 		});

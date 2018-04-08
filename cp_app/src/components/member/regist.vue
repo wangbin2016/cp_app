@@ -19,7 +19,7 @@
 <script>
 	import common from 'utils/common.js'
 	import Vue from 'vue'
-	import { Field, Button } from 'mint-ui';
+	import { Field, Button,Toast } from 'mint-ui';
 
 	Vue.component(Field.name, Field);
 	Vue.component(Button.name, Button);
@@ -40,12 +40,16 @@
 			handleClick: function() {
 				const url = common.api.member.regist;
 				common.post(url,this.body,false,function(data){
+					
 					Toast({
 						message: '注册成功',
 						position: 'middle',
 						duration: 1000
 					})
-					common.gotoUrl("/info");
+					setTimeout(function() {
+						common.gotoUrl("/info");
+					}, 1500);
+					
 				},function(data){
 					Toast({
 						message: '注册失败',
