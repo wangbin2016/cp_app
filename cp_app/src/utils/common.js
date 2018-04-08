@@ -33,9 +33,17 @@ export default {
 			param.token=loginInfoObj.token;
 			param.account=loginInfoObj.account
 		}
+		const tempFn = this.gotoUrl;
+		
 		axios.get(url, {
 				params: param
-			}).then(function(response) {
+		}).then(function(response) {
+				
+				if(response.data.code == "100001"){
+					tempFn.gotoUrl('/login');
+					return;
+				}
+				
 				if(response.data.code == "000000") {
 					successFn(response.data);
 				} else {

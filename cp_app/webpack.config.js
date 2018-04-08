@@ -52,6 +52,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
+    disableHostCheck:true,
     proxy: {
         '/api': {
             target: 'http://192.168.1.122:7777/',
@@ -59,7 +60,8 @@ module.exports = {
             changeOrigin: true,
             pathRewrite: {'^/api': ''}
         }
-    }
+    },
+    port:8088
   },
   devtool: '#eval-source-map'
 }
